@@ -55,35 +55,65 @@ const Experience: React.FC = () => {
   ];
 
   return (
-    <section id="experience" className="bg-gray-50">
-      <div className="section-container">
-        <h2 className="section-title">Work Experience</h2>
+    <section id="experience" className="py-24 relative bg-gradient-to-b from-portfolio-darkBlue to-black">
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-10 right-1/4 w-64 h-64 bg-blue-400 rounded-full filter blur-3xl"></div>
+        <div className="absolute bottom-10 left-1/4 w-80 h-80 bg-indigo-400 rounded-full filter blur-3xl"></div>
+      </div>
+      
+      <div className="section-container relative z-10">
+        <div className="flex flex-col items-center text-center mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
+            Work <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">Experience</span>
+          </h2>
+          <div className="w-20 h-1.5 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full"></div>
+        </div>
         
-        <div className="space-y-4">
-          {experiences.map((exp, index) => (
-            <div key={index} className="experience-card animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-              <div className="flex items-start mb-2">
-                <div className="bg-portfolio-blue bg-opacity-10 p-2 rounded-md mr-4">
-                  <Briefcase className="text-portfolio-blue" size={20} />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-portfolio-dark">{exp.position}</h3>
-                  <div className="flex flex-wrap items-center text-gray-600">
-                    <span className="font-medium">{exp.company}</span>
-                    <span className="mx-2">•</span>
-                    <span>{exp.location}</span>
+        <div className="relative">
+          {/* Timeline line */}
+          <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-gradient-to-b from-blue-500 to-indigo-600 rounded-full"></div>
+          
+          <div className="space-y-12 relative">
+            {experiences.map((exp, index) => (
+              <div 
+                key={index} 
+                className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 animate-fade-in`}
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <div className="w-full md:w-1/2 md:text-right flex flex-col items-start md:items-end">
+                  <div className={`p-6 w-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl shadow-xl transition-all hover:shadow-blue-500/10 hover:-translate-y-1 ${index % 2 === 0 ? 'md:mr-8' : 'md:ml-8'}`}>
+                    <h3 className="text-xl font-bold text-white mb-1">{exp.position}</h3>
+                    <div className="text-blue-400 font-medium mb-2">{exp.company}</div>
+                    <div className="text-sm text-gray-400 mb-4">
+                      <span>{exp.location}</span>
+                      <span className="mx-2">•</span>
+                      <span>{exp.period}</span>
+                    </div>
+                    
+                    <ul className="space-y-2 text-gray-300">
+                      {exp.description.map((item, i) => (
+                        <li key={i} className="flex items-start">
+                          <span className="text-blue-400 mr-2">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <p className="text-sm text-gray-500 mt-1">{exp.period}</p>
                 </div>
+                
+                {/* Timeline dot */}
+                <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center justify-center">
+                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full p-1 shadow-xl shadow-blue-500/20">
+                    <div className="w-full h-full bg-black rounded-full flex items-center justify-center">
+                      <Briefcase className="text-blue-400" size={20} />
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="w-full md:w-1/2"></div>
               </div>
-              
-              <ul className="list-disc list-inside text-gray-700 ml-10 space-y-1">
-                {exp.description.map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
