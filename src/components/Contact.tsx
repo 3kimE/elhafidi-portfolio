@@ -1,20 +1,23 @@
 
 import React from 'react';
-import { Mail, MapPin, Phone, Linkedin } from 'lucide-react';
+import { Mail, MapPin, Phone, Linkedin, Github } from 'lucide-react';
+import { useIsMobile } from '../hooks/use-mobile';
 
 const Contact: React.FC = () => {
+  const isMobile = useIsMobile();
+  
   const contactInfo = [
     {
       icon: <Mail className="text-portfolio-blue" size={24} />,
       title: "Email",
-      value: "contact@elhafidi.dev",
-      link: "mailto:contact@elhafidi.dev"
+      value: "abdohafidi2000@gmail.com",
+      link: "mailto:abdohafidi2000@gmail.com"
     },
     {
       icon: <Phone className="text-portfolio-blue" size={24} />,
       title: "Phone",
-      value: "+212 600 000000",
-      link: "tel:+212600000000"
+      value: "0614793062",
+      link: "tel:0614793062"
     },
     {
       icon: <MapPin className="text-portfolio-blue" size={24} />,
@@ -24,13 +27,19 @@ const Contact: React.FC = () => {
     {
       icon: <Linkedin className="text-portfolio-blue" size={24} />,
       title: "LinkedIn",
-      value: "linkedin.com/in/elhafidi",
-      link: "https://linkedin.com/in/"
+      value: "Abdelkarim El Hafidi",
+      link: "https://www.linkedin.com/in/abdelkarim-el-hafidi-72655b262/"
+    },
+    {
+      icon: <Github className="text-portfolio-blue" size={24} />,
+      title: "GitHub",
+      value: "3kimE",
+      link: "https://github.com/3kimE"
     }
   ];
 
   return (
-    <section id="contact" className="bg-white">
+    <section id="contact" className="bg-gradient-to-b from-white to-blue-50 py-20">
       <div className="section-container">
         <h2 className="section-title">Get In Touch</h2>
         
@@ -42,10 +51,10 @@ const Contact: React.FC = () => {
               I'll do my best to get back to you as soon as possible!
             </p>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
               {contactInfo.map((item, index) => (
-                <div key={index} className="flex items-start">
-                  <div className="bg-portfolio-blue bg-opacity-10 p-3 rounded-md mr-4">
+                <div key={index} className="flex items-start transform transition-all duration-300 hover:translate-y-[-5px]">
+                  <div className="bg-portfolio-blue bg-opacity-10 p-3 rounded-md mr-4 shadow-sm">
                     {item.icon}
                   </div>
                   <div>
@@ -54,6 +63,8 @@ const Contact: React.FC = () => {
                       <a 
                         href={item.link} 
                         className="text-gray-600 hover:text-portfolio-blue transition-colors"
+                        target={item.link.startsWith('http') ? "_blank" : undefined}
+                        rel={item.link.startsWith('http') ? "noopener noreferrer" : undefined}
                       >
                         {item.value}
                       </a>
@@ -70,14 +81,14 @@ const Contact: React.FC = () => {
                 href="resume.pdf" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 bg-portfolio-blue text-white rounded-md font-medium hover:bg-portfolio-darkBlue transition-colors duration-300"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-portfolio-blue to-portfolio-darkBlue text-white rounded-md font-medium hover:shadow-lg transition-all duration-300 transform hover:translate-y-[-2px]"
               >
                 Download CV
               </a>
             </div>
           </div>
           
-          <div className="bg-gray-50 rounded-lg p-6 shadow-sm animate-fade-in-right">
+          <div className="bg-white rounded-lg p-6 shadow-lg animate-fade-in-right border border-blue-100">
             <form>
               <div className="mb-4">
                 <label 
@@ -89,7 +100,7 @@ const Contact: React.FC = () => {
                 <input
                   type="text"
                   id="name"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-portfolio-blue focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-portfolio-blue focus:border-transparent transition-all duration-300"
                   placeholder="Your Name"
                   required
                 />
@@ -105,7 +116,7 @@ const Contact: React.FC = () => {
                 <input
                   type="email"
                   id="email"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-portfolio-blue focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-portfolio-blue focus:border-transparent transition-all duration-300"
                   placeholder="Your Email"
                   required
                 />
@@ -121,7 +132,7 @@ const Contact: React.FC = () => {
                 <input
                   type="text"
                   id="subject"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-portfolio-blue focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-portfolio-blue focus:border-transparent transition-all duration-300"
                   placeholder="Subject"
                   required
                 />
@@ -137,7 +148,7 @@ const Contact: React.FC = () => {
                 <textarea
                   id="message"
                   rows={5}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-portfolio-blue focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-portfolio-blue focus:border-transparent transition-all duration-300"
                   placeholder="Your Message"
                   required
                 ></textarea>
@@ -145,7 +156,7 @@ const Contact: React.FC = () => {
               
               <button 
                 type="submit" 
-                className="w-full px-6 py-3 bg-portfolio-blue text-white rounded-md font-medium hover:bg-portfolio-darkBlue transition-colors duration-300"
+                className="w-full px-6 py-3 bg-gradient-to-r from-portfolio-blue to-portfolio-darkBlue text-white rounded-md font-medium hover:shadow-lg transition-all duration-300 transform hover:translate-y-[-2px]"
               >
                 Send Message
               </button>
