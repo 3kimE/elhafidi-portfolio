@@ -66,7 +66,7 @@ const Skills: React.FC = () => {
           {skillCategories.map((category, index) => (
             <div 
               key={index} 
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 shadow-xl animate-fade-in transform transition-all hover:shadow-blue-500/10 hover:-translate-y-2"
+              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 shadow-xl transition-all duration-300 animate-fade-in transform hover:shadow-blue-500/20 hover:-translate-y-2"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex items-center mb-6">
@@ -80,7 +80,10 @@ const Skills: React.FC = () => {
               
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, i) => (
-                  <span key={i} className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-sm font-medium text-blue-400 hover:bg-white/10 transition-colors">
+                  <span 
+                    key={i} 
+                    className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-sm font-medium text-blue-400 hover:bg-white/10 transition-all duration-300 hover:scale-105"
+                  >
                     {skill}
                   </span>
                 ))}

@@ -13,9 +13,9 @@ const Footer: React.FC = () => {
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-center">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-8">
           <div className="mb-8 md:mb-0 text-center md:text-left">
-            <p className="font-extrabold text-3xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400 mb-2">Abdelkarim Elhafidi</p>
+            <p className="font-extrabold text-3xl gradient-text mb-2">Abdelkarim Elhafidi</p>
             <p className="text-blue-400 mb-4">Full Stack Software Developer</p>
             
             <p className="text-gray-400 max-w-md">
@@ -23,38 +23,42 @@ const Footer: React.FC = () => {
             </p>
           </div>
           
-          <div className="flex space-x-6">
+          <div className="flex flex-wrap justify-center gap-4">
             <a 
               href="https://github.com/3kimE" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="bg-white/5 backdrop-blur-sm border border-white/10 p-3 rounded-full text-gray-400 hover:text-blue-400 hover:border-blue-400 transition-colors transform hover:scale-110"
+              className="glass-card hover-lift p-3 rounded-full text-gray-400 hover:text-blue-400 flex items-center gap-2"
               aria-label="GitHub Profile"
             >
-              <Github size={24} />
+              <Github size={20} />
+              <span className="hidden sm:block">GitHub</span>
             </a>
             <a 
               href="https://www.linkedin.com/in/abdelkarim-el-hafidi-72655b262/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="bg-white/5 backdrop-blur-sm border border-white/10 p-3 rounded-full text-gray-400 hover:text-blue-400 hover:border-blue-400 transition-colors transform hover:scale-110"
+              className="glass-card hover-lift p-3 rounded-full text-gray-400 hover:text-blue-400 flex items-center gap-2"
               aria-label="LinkedIn Profile"
             >
-              <Linkedin size={24} />
+              <Linkedin size={20} />
+              <span className="hidden sm:block">LinkedIn</span>
             </a>
             <a 
               href="mailto:abdohafidi2000@gmail.com"
-              className="bg-white/5 backdrop-blur-sm border border-white/10 p-3 rounded-full text-gray-400 hover:text-blue-400 hover:border-blue-400 transition-colors transform hover:scale-110"
+              className="glass-card hover-lift p-3 rounded-full text-gray-400 hover:text-blue-400 flex items-center gap-2"
               aria-label="Email Me"
             >
-              <Mail size={24} />
+              <Mail size={20} />
+              <span className="hidden sm:block">abdohafidi2000@gmail.com</span>
             </a>
             <a 
               href="tel:0614793062"
-              className="bg-white/5 backdrop-blur-sm border border-white/10 p-3 rounded-full text-gray-400 hover:text-blue-400 hover:border-blue-400 transition-colors transform hover:scale-110"
+              className="glass-card hover-lift p-3 rounded-full text-gray-400 hover:text-blue-400 flex items-center gap-2"
               aria-label="Call Me"
             >
-              <Phone size={24} />
+              <Phone size={20} />
+              <span className="hidden sm:block">0614793062</span>
             </a>
           </div>
         </div>
@@ -65,13 +69,13 @@ const Footer: React.FC = () => {
           </p>
           
           <div>
-            <nav className="flex flex-wrap justify-center gap-6 text-sm">
-              <a href="#home" className="text-gray-400 hover:text-blue-400 transition-colors">Home</a>
-              <a href="#about" className="text-gray-400 hover:text-blue-400 transition-colors">About</a>
-              <a href="#experience" className="text-gray-400 hover:text-blue-400 transition-colors">Experience</a>
-              <a href="#projects" className="text-gray-400 hover:text-blue-400 transition-colors">Projects</a>
-              <a href="#skills" className="text-gray-400 hover:text-blue-400 transition-colors">Skills</a>
-              <a href="#contact" className="text-gray-400 hover:text-blue-400 transition-colors">Contact</a>
+            <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
+              <a href="#home" className="text-gray-400 hover:text-blue-400 transition-colors hover-lift">Home</a>
+              <a href="#about" className="text-gray-400 hover:text-blue-400 transition-colors hover-lift">About</a>
+              <a href="#experience" className="text-gray-400 hover:text-blue-400 transition-colors hover-lift">Experience</a>
+              <a href="#projects" className="text-gray-400 hover:text-blue-400 transition-colors hover-lift">Projects</a>
+              <a href="#skills" className="text-gray-400 hover:text-blue-400 transition-colors hover-lift">Skills</a>
+              <a href="#contact" className="text-gray-400 hover:text-blue-400 transition-colors hover-lift">Contact</a>
             </nav>
           </div>
         </div>
