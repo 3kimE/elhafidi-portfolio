@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Briefcase } from 'lucide-react';
+import { Briefcase, Calendar, MapPin } from 'lucide-react';
 
 const Experience: React.FC = () => {
   const experiences = [
@@ -8,7 +8,7 @@ const Experience: React.FC = () => {
       company: "DevOps Crowd",
       location: "Canada (Remote)",
       position: "Full Stack Developer & Team Lead",
-      period: "2022 - Present",
+      period: "Dec 2023 - Jan 2025",
       description: [
         "Specialized in Shopify app development, creating custom templates to enhance e-commerce experiences",
         "Led development teams using ClickUp and Azure DevOps to manage project workflows efficiently",
@@ -20,7 +20,7 @@ const Experience: React.FC = () => {
       company: "Aksolus Agadir",
       position: "React Developer",
       location: "Agadir, Morocco",
-      period: "2021",
+      period: "Apr 2023 - Jun 2023",
       description: [
         "Developed a cheque management web application using React and Node.js",
         "Implemented responsive UI components with Material UI",
@@ -32,7 +32,7 @@ const Experience: React.FC = () => {
       company: "IRONDEV Technopark Souss Massa",
       position: "Flutter Developer",
       location: "Agadir, Morocco",
-      period: "2020",
+      period: "Apr 2022 - Jun 2022",
       description: [
         "Built a streaming mobile application using Flutter",
         "Implemented cross-platform compatibility for Android and iOS devices",
@@ -43,8 +43,8 @@ const Experience: React.FC = () => {
     {
       company: "VALA BLUE",
       position: "Web Developer",
-      location: "Agadir, Morocco",
-      period: "2019",
+      location: "Taroudant, Morocco",
+      period: "Jul 2021 - Aug 2021",
       description: [
         "Developed dynamic web applications using PHP, Bootstrap, and SQL Server",
         "Created database schemas and implemented data access layers",
@@ -55,39 +55,48 @@ const Experience: React.FC = () => {
   ];
 
   return (
-    <section id="experience" className="py-24 relative bg-gradient-to-b from-portfolio-darkBlue to-black">
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-10 right-1/4 w-64 h-64 bg-blue-400 rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-10 left-1/4 w-80 h-80 bg-indigo-400 rounded-full filter blur-3xl"></div>
+    <section id="experience" className="py-24 relative bg-gradient-to-b from-portfolio-darkBlue to-black text-white">
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-10 right-1/4 w-64 h-64 bg-blue-500 rounded-full filter blur-3xl"></div>
+        <div className="absolute bottom-10 left-1/4 w-80 h-80 bg-indigo-500 rounded-full filter blur-3xl"></div>
       </div>
       
       <div className="section-container relative z-10">
         <div className="flex flex-col items-center text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">
             Work <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">Experience</span>
           </h2>
-          <div className="w-20 h-1.5 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full"></div>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full"></div>
+          <p className="mt-6 text-gray-300 max-w-2xl">
+            My professional journey through various roles and projects in the tech industry.
+          </p>
         </div>
         
-        <div className="relative">
+        <div className="relative max-w-5xl mx-auto">
           {/* Timeline line */}
-          <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-gradient-to-b from-blue-500 to-indigo-600 rounded-full"></div>
+          <div className="absolute left-6 md:left-1/2 md:-ml-0.5 h-full w-1 bg-gradient-to-b from-blue-500 to-indigo-600 rounded-full"></div>
           
-          <div className="space-y-12 relative">
+          <div className="space-y-16 relative">
             {experiences.map((exp, index) => (
               <div 
                 key={index} 
-                className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 animate-fade-in`}
+                className="flex flex-col md:flex-row gap-8 animate-fade-in"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <div className="w-full md:w-1/2 md:text-right flex flex-col items-start md:items-end">
-                  <div className={`p-6 w-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl shadow-xl transition-all hover:shadow-blue-500/10 hover:-translate-y-1 ${index % 2 === 0 ? 'md:mr-8' : 'md:ml-8'}`}>
+                <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:order-2 md:pl-12'}`}>
+                  <div className="p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl shadow-xl transition-all hover:shadow-blue-500/10 hover:-translate-y-1">
                     <h3 className="text-xl font-bold text-white mb-1">{exp.position}</h3>
                     <div className="text-blue-400 font-medium mb-2">{exp.company}</div>
-                    <div className="text-sm text-gray-400 mb-4">
-                      <span>{exp.location}</span>
-                      <span className="mx-2">•</span>
-                      <span>{exp.period}</span>
+                    
+                    <div className="flex flex-wrap gap-3 mb-4 text-sm">
+                      <div className="flex items-center gap-1 text-gray-300">
+                        <Calendar size={14} className="text-blue-400" />
+                        <span className="font-medium">{exp.period}</span>
+                      </div>
+                      <div className="flex items-center gap-1 text-gray-300">
+                        <MapPin size={14} className="text-blue-400" />
+                        <span>{exp.location}</span>
+                      </div>
                     </div>
                     
                     <ul className="space-y-2 text-gray-300">
@@ -102,7 +111,7 @@ const Experience: React.FC = () => {
                 </div>
                 
                 {/* Timeline dot */}
-                <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center justify-center">
+                <div className={`hidden md:flex absolute ${index % 2 === 0 ? 'left-1/2 -translate-x-1/2' : 'left-1/2 -translate-x-1/2'} items-center justify-center`}>
                   <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full p-1 shadow-xl shadow-blue-500/20">
                     <div className="w-full h-full bg-black rounded-full flex items-center justify-center">
                       <Briefcase className="text-blue-400" size={20} />
@@ -110,7 +119,7 @@ const Experience: React.FC = () => {
                   </div>
                 </div>
                 
-                <div className="w-full md:w-1/2"></div>
+                <div className={`hidden md:block w-1/2 ${index % 2 === 0 ? 'md:order-2' : ''}`}></div>
               </div>
             ))}
           </div>

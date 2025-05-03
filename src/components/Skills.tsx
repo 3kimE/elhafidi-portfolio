@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Code, Database, Server, Globe, Settings } from 'lucide-react';
+import { Progress } from "@/components/ui/progress";
 
 const Skills: React.FC = () => {
   const skillCategories = [
@@ -8,65 +9,89 @@ const Skills: React.FC = () => {
       category: "Frontend Development",
       icon: <Code className="text-blue-400" size={24} />,
       skills: [
-        "JavaScript", "TypeScript", "React", "Next.js", 
-        "React Native", "Flutter", "HTML5", "CSS3", 
-        "Tailwind CSS", "Material UI", "Bootstrap"
+        { name: "JavaScript", level: 90 },
+        { name: "TypeScript", level: 85 },
+        { name: "React", level: 90 },
+        { name: "Next.js", level: 85 },
+        { name: "React Native", level: 80 },
+        { name: "Flutter", level: 75 },
+        { name: "HTML5/CSS3", level: 95 },
+        { name: "Tailwind CSS", level: 90 },
       ]
     },
     {
       category: "Backend Development",
       icon: <Server className="text-blue-400" size={24} />,
       skills: [
-        "Node.js", "Express", "PHP", "REST API", 
-        "GraphQL", "Firebase", "AWS Lambda"
+        { name: "Node.js", level: 85 },
+        { name: "Express", level: 80 },
+        { name: "PHP", level: 75 },
+        { name: "REST API", level: 90 },
+        { name: "GraphQL", level: 80 },
+        { name: "Firebase", level: 85 },
+        { name: "AWS Lambda", level: 70 },
       ]
     },
     {
       category: "Database Management",
       icon: <Database className="text-blue-400" size={24} />,
       skills: [
-        "MongoDB", "MySQL", "SQL Server", "Firebase Firestore", 
-        "PostgreSQL", "Redis"
+        { name: "MongoDB", level: 85 },
+        { name: "MySQL", level: 80 },
+        { name: "SQL Server", level: 75 },
+        { name: "Firebase Firestore", level: 80 },
+        { name: "PostgreSQL", level: 75 },
       ]
     },
     {
       category: "E-commerce & CMS",
       icon: <Globe className="text-blue-400" size={24} />,
       skills: [
-        "Shopify", "WordPress", "Shopify Liquid", "WooCommerce", 
-        "Contentful", "Strapi"
+        { name: "Shopify", level: 90 },
+        { name: "WordPress", level: 85 },
+        { name: "Shopify Liquid", level: 80 },
+        { name: "WooCommerce", level: 75 },
+        { name: "Contentful", level: 70 },
       ]
     },
     {
       category: "Tools & Others",
       icon: <Settings className="text-blue-400" size={24} />,
       skills: [
-        "Git", "GitHub", "VS Code", "Azure DevOps", "ClickUp", 
-        "Docker", "CI/CD", "Agile Methodology", "Jira"
+        { name: "Git/GitHub", level: 90 },
+        { name: "VS Code", level: 95 },
+        { name: "Azure DevOps", level: 85 },
+        { name: "ClickUp", level: 80 },
+        { name: "Docker", level: 75 },
+        { name: "CI/CD", level: 80 },
       ]
     }
   ];
 
   return (
     <section id="skills" className="py-24 relative bg-gradient-to-b from-black to-portfolio-darkBlue text-white">
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 right-1/4 w-64 h-64 bg-blue-400 rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-20 left-1/4 w-80 h-80 bg-indigo-400 rounded-full filter blur-3xl"></div>
+      {/* Decorative elements */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-20 right-1/4 w-64 h-64 bg-blue-500 rounded-full filter blur-3xl"></div>
+        <div className="absolute bottom-20 left-1/4 w-80 h-80 bg-indigo-500 rounded-full filter blur-3xl"></div>
       </div>
       
       <div className="section-container relative z-10">
         <div className="flex flex-col items-center text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            Skills & <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">Technologies</span>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+            Skills & <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">Expertise</span>
           </h2>
-          <div className="w-20 h-1.5 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full"></div>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full"></div>
+          <p className="mt-6 text-gray-300 max-w-2xl">
+            A comprehensive collection of technologies I've mastered throughout my professional journey.
+          </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {skillCategories.map((category, index) => (
             <div 
               key={index} 
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 shadow-xl transition-all duration-300 animate-fade-in transform hover:shadow-blue-500/20 hover:-translate-y-2"
+              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 shadow-xl transition-all duration-300 animate-fade-in hover:shadow-blue-500/20"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex items-center mb-6">
@@ -78,14 +103,20 @@ const Skills: React.FC = () => {
                 </h3>
               </div>
               
-              <div className="flex flex-wrap gap-2">
+              <div className="space-y-4">
                 {category.skills.map((skill, i) => (
-                  <span 
-                    key={i} 
-                    className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-sm font-medium text-blue-400 hover:bg-white/10 transition-all duration-300 hover:scale-105"
-                  >
-                    {skill}
-                  </span>
+                  <div key={i} className="space-y-1">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-200">{skill.name}</span>
+                      <span className="text-blue-400">{skill.level}%</span>
+                    </div>
+                    <Progress value={skill.level} className="h-1.5 bg-gray-700">
+                      <div 
+                        className="h-full bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full"
+                        style={{ width: `${skill.level}%` }}
+                      ></div>
+                    </Progress>
+                  </div>
                 ))}
               </div>
             </div>
