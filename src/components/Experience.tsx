@@ -22,7 +22,7 @@ const Experience: React.FC = () => {
       location: "Agadir, Morocco",
       period: "Apr 2023 - Jun 2023",
       description: [
-        "Developed a cheque management web application using React and Node.js",
+        "Developed a check management web application using React and Node.js",
         "Implemented responsive UI components with Material UI",
         "Worked with REST APIs for data fetching and state management",
         "Collaborated in an Agile development environment"

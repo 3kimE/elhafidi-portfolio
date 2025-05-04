@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X, FileDown } from 'lucide-react';
 import { Button } from './ui/button';
@@ -99,15 +98,16 @@ const Header: React.FC = () => {
             </nav>
             
             {/* Download CV Button */}
-            <Button 
-              onClick={handleDownloadCV} 
-              variant="outline" 
-              size="sm"
-              className="border-blue-400 text-blue-400 hover:bg-blue-400/10 hover:text-white transition-all"
-            >
-              <FileDown className="mr-2 h-4 w-4" />
-              Download CV
-            </Button>
+         
+              {/* <a 
+                href="https://drive.google.com/file/d/13ptWdLXHeTSpXJaJEITRhYNLBkiu4Nty/view?usp=sharing" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block px-8 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:-translate-y-1"
+              >
+                Download CV
+              </a> */}
+            
           </div>
           
           {/* Mobile menu button */}

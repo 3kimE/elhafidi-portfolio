@@ -1,83 +1,11 @@
-import React, { useState } from 'react';
-import { Mail, MapPin, Phone, Linkedin, Github, Send } from 'lucide-react';
-import { useIsMobile } from '../hooks/use-mobile';
-import { useToast } from '@/hooks/use-toast';
-import { z } from 'zod';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import emailjs from '@emailjs/browser';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Button } from '@/components/ui/button';
 
-const formSchema = z.object({
-  name: z.string().min(2, { message: 'Name must be at least 2 characters' }),
-  email: z.string().email({ message: 'Please enter a valid email address' }),
-  subject: z.string().min(5, { message: 'Subject must be at least 5 characters' }),
-  message: z.string().min(10, { message: 'Message must be at least 10 characters' }),
-});
+import React from 'react';
+import { Mail, MapPin, Phone, Linkedin, Github } from 'lucide-react';
+import { useIsMobile } from '../hooks/use-mobile';
 
 const Contact: React.FC = () => {
   const isMobile = useIsMobile();
-  const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
   
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: '',
-      email: '',
-      subject: '',
-      message: '',
-    },
-  });
-
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    setIsSubmitting(true);
-    
-    try {
-      // Prepare the template parameters
-      const templateParams = {
-        from_name: values.name,
-        from_email: values.email,
-        subject: values.subject,
-        message: values.message,
-        to_name: 'Abdelkarim El Hafidi',
-      };
-
-      // Using EmailJS browser SDK for better reliability
-      await emailjs.send(
-        'service_8m4yi6o',
-        'template_9lp43vm',
-        templateParams,
-        'zQ3alnFJ9MW2rV0xJ'
-      );
-      
-      toast({
-        title: "Message sent!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
-      });
-      form.reset();
-    } catch (error) {
-      console.error("Error sending email:", error);
-      toast({
-        title: "Failed to send message",
-        description: "Please try again later or contact me directly via email.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   const contactInfo = [
     {
       icon: <Mail className="text-blue-400" size={24} />,
@@ -174,97 +102,78 @@ const Contact: React.FC = () => {
           </div>
           
           <div className="animate-fade-in-right">
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 shadow-xl space-y-6">
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-sm font-medium text-gray-300">Name</FormLabel>
-                      <FormControl>
-                        <Input 
-                          placeholder="Your Name" 
-                          className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-white"
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage className="text-red-400" />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-sm font-medium text-gray-300">Email</FormLabel>
-                      <FormControl>
-                        <Input 
-                          placeholder="Your Email" 
-                          type="email"
-                          className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-white"
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage className="text-red-400" />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="subject"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-sm font-medium text-gray-300">Subject</FormLabel>
-                      <FormControl>
-                        <Input 
-                          placeholder="Subject" 
-                          className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-white"
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage className="text-red-400" />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-sm font-medium text-gray-300">Message</FormLabel>
-                      <FormControl>
-                        <Textarea 
-                          placeholder="Your Message" 
-                          className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-white min-h-[120px]"
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage className="text-red-400" />
-                    </FormItem>
-                  )}
-                />
-
-                <Button 
-                  type="submit" 
-                  disabled={isSubmitting}
-                  className="w-full px-8 py-6 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2"
+            <form className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 shadow-xl">
+              <div className="mb-6">
+                <label 
+                  htmlFor="name" 
+                  className="block text-sm font-medium text-gray-300 mb-2"
                 >
-                  {isSubmitting ? (
-                    <span>Sending...</span>
-                  ) : (
-                    <>
-                      <Send className="w-5 h-5" />
-                      <span>Send Message</span>
-                    </>
-                  )}
-                </Button>
-              </form>
-            </Form>
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-white"
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+              
+              <div className="mb-6">
+                <label 
+                  htmlFor="email" 
+                  className="block text-sm font-medium text-gray-300 mb-2"
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-white"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+              
+              <div className="mb-6">
+                <label 
+                  htmlFor="subject" 
+                  className="block text-sm font-medium text-gray-300 mb-2"
+                >
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  id="subject"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-white"
+                  placeholder="Subject"
+                  required
+                />
+              </div>
+              
+              <div className="mb-6">
+                <label 
+                  htmlFor="message" 
+                  className="block text-sm font-medium text-gray-300 mb-2"
+                >
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  rows={5}
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-white"
+                  placeholder="Your Message"
+                  required
+                ></textarea>
+              </div>
+              
+              <button 
+                type="submit" 
+                className="w-full px-8 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:-translate-y-1"
+              >
+                Send Message
+              </button>
+            </form>
           </div>
         </div>
       </div>
