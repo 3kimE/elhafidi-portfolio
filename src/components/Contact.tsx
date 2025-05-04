@@ -22,7 +22,7 @@ const Contact: React.FC = () => {
     {
       icon: <MapPin className="text-blue-400" size={24} />,
       title: "Location",
-      value: "Agadir, Morocco"
+      value: "Taroudant, Morocco"
     },
     {
       icon: <Linkedin className="text-blue-400" size={24} />,
@@ -91,7 +91,7 @@ const Contact: React.FC = () => {
             
             <div className="mt-8">
               <a 
-                href="resume.pdf" 
+                href="https://drive.google.com/file/d/13ptWdLXHeTSpXJaJEITRhYNLBkiu4Nty/view?usp=sharing" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-block px-8 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:-translate-y-1"
