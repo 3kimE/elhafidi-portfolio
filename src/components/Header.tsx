@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, FileDown } from 'lucide-react';
+import { Button } from './ui/button';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,6 +48,20 @@ const Header: React.FC = () => {
     { name: 'Contact', href: '#contact' },
   ];
 
+  const handleDownloadCV = () => {
+    // Replace with your actual CV file path
+    const cvUrl = '/your-cv.pdf';
+    
+    // Create a temporary link element
+    const link = document.createElement('a');
+    link.href = cvUrl;
+    link.download = 'Abdelkarim_Elhafidi_CV.pdf';
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <header 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
@@ -66,21 +81,34 @@ const Header: React.FC = () => {
           </div>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            {navLinks.map((link) => (
-              <a 
-                key={link.name} 
-                href={link.href} 
-                className={`font-medium transition-all duration-300 hover:-translate-y-1 ${
-                  activeSection === link.href.substring(1) 
-                    ? 'text-blue-400' 
-                    : 'text-gray-300 hover:text-white'
-                }`}
-              >
-                {link.name}
-              </a>
-            ))}
-          </nav>
+          <div className="hidden md:flex md:items-center">
+            <nav className="flex space-x-8 mr-6">
+              {navLinks.map((link) => (
+                <a 
+                  key={link.name} 
+                  href={link.href} 
+                  className={`font-medium transition-all duration-300 hover:-translate-y-1 ${
+                    activeSection === link.href.substring(1) 
+                      ? 'text-blue-400' 
+                      : 'text-gray-300 hover:text-white'
+                  }`}
+                >
+                  {link.name}
+                </a>
+              ))}
+            </nav>
+            
+            {/* Download CV Button */}
+            <Button 
+              onClick={handleDownloadCV} 
+              variant="outline" 
+              size="sm"
+              className="border-blue-400 text-blue-400 hover:bg-blue-400/10 hover:text-white transition-all"
+            >
+              <FileDown className="mr-2 h-4 w-4" />
+              Download CV
+            </Button>
+          </div>
           
           {/* Mobile menu button */}
           <div className="md:hidden">
@@ -113,6 +141,18 @@ const Header: React.FC = () => {
                 {link.name}
               </a>
             ))}
+            
+            {/* Download CV Button for mobile */}
+            <div className="px-4 py-3">
+              <Button 
+                onClick={handleDownloadCV} 
+                variant="outline" 
+                className="w-full border-blue-400 text-blue-400 hover:bg-blue-400/10 hover:text-white transition-all"
+              >
+                <FileDown className="mr-2 h-4 w-4" />
+                Download CV
+              </Button>
+            </div>
           </div>
         </nav>
       )}
