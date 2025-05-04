@@ -51,7 +51,7 @@ const Contact: React.FC = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          service_id: 'service_y8p8r8o', // Replace with your EmailJS service ID
+          service_id: 'service_8m4yi6o', // Updated with your EmailJS service ID
           template_id: 'template_9lp43vm', // Replace with your EmailJS template ID
           user_id: 'zQ3alnFJ9MW2rV0xJ', // Replace with your EmailJS user ID
           template_params: {
