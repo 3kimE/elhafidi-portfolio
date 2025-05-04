@@ -47,19 +47,7 @@ const Header: React.FC = () => {
     { name: 'Contact', href: '#contact' },
   ];
 
-  const handleDownloadCV = () => {
-    // Replace with your actual CV file path
-    const cvUrl = '/your-cv.pdf';
-    
-    // Create a temporary link element
-    const link = document.createElement('a');
-    link.href = cvUrl;
-    link.download = 'Abdelkarim_Elhafidi_CV.pdf';
-    link.target = '_blank';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+ 
 
   return (
     <header 
