@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Mail, MapPin, Phone, Linkedin, Github, Send } from 'lucide-react';
 import { useIsMobile } from '../hooks/use-mobile';
@@ -6,6 +5,7 @@ import { useToast } from '@/hooks/use-toast';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import emailjs from '@emailjs/browser';
 import {
   Form,
   FormControl,
@@ -44,35 +44,28 @@ const Contact: React.FC = () => {
     setIsSubmitting(true);
     
     try {
-      // Using EmailJS to send emails directly from client-side
-      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          service_id: 'service_8m4yi6o', // Updated with your EmailJS service ID
-          template_id: 'template_9lp43vm', // Replace with your EmailJS template ID
-          user_id: 'zQ3alnFJ9MW2rV0xJ', // Replace with your EmailJS user ID
-          template_params: {
-            from_name: values.name,
-            from_email: values.email,
-            subject: values.subject,
-            message: values.message,
-            to_name: 'Abdelkarim El Hafidi',
-          }
-        }),
-      });
+      // Prepare the template parameters
+      const templateParams = {
+        from_name: values.name,
+        from_email: values.email,
+        subject: values.subject,
+        message: values.message,
+        to_name: 'Abdelkarim El Hafidi',
+      };
 
-      if (response.status === 200) {
-        toast({
-          title: "Message sent!",
-          description: "Thank you for reaching out. I'll get back to you soon.",
-        });
-        form.reset();
-      } else {
-        throw new Error('Failed to send message');
-      }
+      // Using EmailJS browser SDK for better reliability
+      await emailjs.send(
+        'service_8m4yi6o',
+        'template_9lp43vm',
+        templateParams,
+        'zQ3alnFJ9MW2rV0xJ'
+      );
+      
+      toast({
+        title: "Message sent!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+      form.reset();
     } catch (error) {
       console.error("Error sending email:", error);
       toast({
