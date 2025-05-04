@@ -4,16 +4,19 @@ import { Briefcase, Calendar, MapPin } from 'lucide-react';
 
 const Experience: React.FC = () => {
   const experiences = [
+   
+   
+   
     {
-      company: "DevOps Crowd",
-      location: "Canada (Remote)",
-      position: "Full Stack Developer & Team Lead",
-      period: "Dec 2023 - Jan 2025",
+      company: "VALA BLUE",
+      position: "Web Developer",
+      location: "Taroudant, Morocco",
+      period: "Jul 2021 - Aug 2021",
       description: [
-        "Specialized in Shopify app development, creating custom templates to enhance e-commerce experiences",
-        "Led development teams using ClickUp and Azure DevOps to manage project workflows efficiently",
-        "Coordinated between teams to ensure timely project delivery and client satisfaction",
-        "Developed custom Shopify solutions using JavaScript, Liquid, and React"
+        "Developed dynamic web applications using PHP, Bootstrap, and SQL Server",
+        "Created database schemas and implemented data access layers",
+        "Built responsive user interfaces with Bootstrap",
+        "Managed client-side form validation and server-side data processing"
       ]
     },
     {
@@ -41,17 +44,17 @@ const Experience: React.FC = () => {
       ]
     },
     {
-      company: "VALA BLUE",
-      position: "Web Developer",
-      location: "Taroudant, Morocco",
-      period: "Jul 2021 - Aug 2021",
+      company: "DevOps Crowd",
+      location: "Canada (Remote)",
+      position: "Full Stack Developer & Team Lead",
+      period: "Dec 2023 - Jan 2025",
       description: [
-        "Developed dynamic web applications using PHP, Bootstrap, and SQL Server",
-        "Created database schemas and implemented data access layers",
-        "Built responsive user interfaces with Bootstrap",
-        "Managed client-side form validation and server-side data processing"
+        "Specialized in Shopify app development, creating custom templates to enhance e-commerce experiences",
+        "Led development teams using ClickUp and Azure DevOps to manage project workflows efficiently",
+        "Coordinated between teams to ensure timely project delivery and client satisfaction",
+        "Developed custom Shopify solutions using JavaScript, Liquid, and React"
       ]
-    }
+    },
   ];
 
   return (
