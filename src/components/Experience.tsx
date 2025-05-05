@@ -8,12 +8,12 @@ const Experience: React.FC = () => {
    
    
     {
-      company: "VALA BLUE",
+      company: "VALA ORANGE",
       position: "Web Developer",
       location: "Taroudant, Morocco",
       period: "Jul 2021 - Aug 2021",
       description: [
-        "Developed dynamic web applications using PHP, Bootstrap, and SQL Server",
+        "Developed dynamic web applications using PHP, Bootstrap, and SQL databases",
         "Created database schemas and implemented data access layers",
         "Built responsive user interfaces with Bootstrap",
         "Managed client-side form validation and server-side data processing"
@@ -23,7 +23,7 @@ const Experience: React.FC = () => {
       company: "Aksolus Agadir",
       position: "React Developer",
       location: "Agadir, Morocco",
-      period: "Apr 2023 - Jun 2023",
+      period: "Apr 2022 - Jun 2022",
       description: [
         "Developed a check management web application using React and Node.js",
         "Implemented responsive UI components with Material UI",
@@ -35,7 +35,7 @@ const Experience: React.FC = () => {
       company: "IRONDEV Technopark Souss Massa",
       position: "Flutter Developer",
       location: "Agadir, Morocco",
-      period: "Apr 2022 - Jun 2022",
+      period: "Apr 2023 - Jun 2023",
       description: [
         "Built a streaming mobile application using Flutter",
         "Implemented cross-platform compatibility for Android and iOS devices",

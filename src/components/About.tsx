@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const About: React.FC = () => {
@@ -20,27 +19,19 @@ const About: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           <div className="lg:col-span-3 animate-fade-in">
             <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-              I'm Abdelkarim Elhafidi, a passionate Full Stack Software Developer with solid experience 
-              in building modern web and mobile applications. I hold a professional degree in Computer 
-              Engineering from the Polydisciplinary Faculty of Taroudant.
+              I'm Abdelkarim Elhafidi, a passionate Full-Stack Software Developer with solid experience building modern web and mobile applications. I hold a professional degree in Computer Engineering from the Polydisciplinary Faculty of Taroudant.
             </p>
             
             <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-              My career includes professional roles at DevOps Crowd (Canada), where I specialized in 
-              Shopify app development and created custom templates to enhance e-commerce experiences — 
-              contributing directly to projects under DevOps Crowd. As a team lead, I also managed 
-              projects using ClickUp and Azure DevOps, coordinating efficiently between teams.
+              My career includes professional roles at DevOps Crowd (Canada), where I specialized in Shopify app development and created custom templates to enhance e-commerce experiences, contributing directly to projects under DevOps Crowd. As a team lead, I also managed projects using ClickUp and Azure DevOps, coordinating efficiently between teams.
             </p>
             
             <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-              I'm skilled in technologies like JavaScript, TypeScript, React, Next.js, Node.js, PHP, Flutter, 
-              with strong knowledge in REST API, GraphQL, SQL/NoSQL databases, and tools like GitHub, VS Code, 
-              Azure DevOps, Shopify, WordPress.
+              I'm skilled in technologies like JavaScript, TypeScript, React, Next.js, Node.js, PHP, and Flutter. I also have strong knowledge of REST API, GraphQL, SQL/NoSQL databases, and tools like GitHub, VS Code, Azure DevOps, Shopify, and WordPress.
             </p>
             
             <p className="text-gray-300 text-lg leading-relaxed">
-              I'm trilingual — fluent in Arabic, and advanced in French and English — and committed to delivering 
-              high-quality, client-focused solutions.
+              I'm trilingual — fluent in Arabic, and advanced in French and English — and committed to delivering high-quality, client-focused solutions.
             </p>
           </div>
           
@@ -62,7 +53,7 @@ const About: React.FC = () => {
                 <div className="transform hover:scale-105 transition-all">
                   <div className="flex justify-between mb-2">
                     <span className="font-medium text-white">Arabic</span>
-                    <span className="text-sm text-gray-400">Native</span>
+                    <span className="text-sm text-gray-400">Fluent</span>
                   </div>
                   <div className="w-full bg-white/10 rounded-full h-2">
                     <div className="bg-gradient-to-r from-blue-500 to-indigo-600 h-2 rounded-full w-full"></div>
