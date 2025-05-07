@@ -59,7 +59,15 @@ const Projects: React.FC = () => {
       technologies: ["React", "Tailwind CSS", "TypeScript"],
       github: "https://github.com/3kimE/FPT-Clubs",
       live: "https://fpt-clubs.vercel.app//"
-    }
+    },
+    {
+      title: "IPTVWAVE Stream",
+      description: "Modern IPTV landing page featuring dynamic sliders for movies and live TV channels, device compatibility section, and direct contact options via WhatsApp and Telegram.",
+      image: "/iptv.png",
+      technologies: ["React", "Tailwind CSS",  "TypeScript"],
+      github: "https://github.com/3kimE",
+      live: "https://iptv-3.vercel.app/"
+    },
     
   ];
 
