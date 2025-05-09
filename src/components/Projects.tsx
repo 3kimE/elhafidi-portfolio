@@ -52,14 +52,16 @@ const Projects: React.FC = () => {
       github: "https://github.com/3kimE/GlobalView-IPTV-front",
       live: "https://global-view-iptv-front.vercel.app/"
     },
-    {
-      title: "FPT Taroudant Clubs",
-      description: "A student platform for FPT Taroudant showcasing all student clubs with details about members, activities, galleries, and upcoming events. Features clean navigation, responsive design, and modern UI components.",
-      image: "https://lh3.googleusercontent.com/proxy/y9X3fiGHZwO6-ebMipQ_zuXHZT_GsjoxmlkKN9c8My-f27Y4FwHd_vZTdGnhmn1kuMHtnM07X5gWHdQtZ6rUOR91yA",
-      technologies: ["React", "Tailwind CSS", "TypeScript"],
-      github: "https://github.com/3kimE/FPT-Clubs",
-      live: "https://fpt-clubs.vercel.app//"
-    },
+    
+    // {
+    //   title: "FPT Taroudant Clubs",
+    //   description: "A student platform for FPT Taroudant showcasing all student clubs with details about members, activities, galleries, and upcoming events. Features clean navigation, responsive design, and modern UI components.",
+    //   image: "https://lh3.googleusercontent.com/proxy/y9X3fiGHZwO6-ebMipQ_zuXHZT_GsjoxmlkKN9c8My-f27Y4FwHd_vZTdGnhmn1kuMHtnM07X5gWHdQtZ6rUOR91yA",
+    //   technologies: ["React", "Tailwind CSS", "TypeScript"],
+    //   github: "https://github.com/3kimE/FPT-Clubs",
+    //   live: "https://fpt-clubs.vercel.app//"
+    // },
+
     {
       title: "IPTVWAVE Stream",
       description: "Modern IPTV landing page featuring dynamic sliders for movies and live TV channels, device compatibility section, and direct contact options via WhatsApp and Telegram.",
