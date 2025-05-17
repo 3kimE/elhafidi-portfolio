@@ -43,7 +43,7 @@ const Skills: React.FC = () => {
         { name: "SQL Server", level: 75 },
         { name: "Firebase Firestore", level: 70 },
         { name: "Convex ", level: 70 },
-        { name: "Gadjet ", level: 90 },
+        { name: "Gadget ", level: 90 },
       ],
     },
     {
